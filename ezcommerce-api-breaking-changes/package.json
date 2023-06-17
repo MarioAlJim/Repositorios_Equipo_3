@@ -1,0 +1,35 @@
+{
+    "name": "ezcommerce-api",
+    "version": "0.0.1",
+    "description": "EZCommerce services API",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SparkSquad/ezcommerce-api.git"
+    },
+    "author": "SparkSquad",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/SparkSquad/ezcommerce-api/issues"
+    },
+    "homepage": "https://github.com/SparkSquad/ezcommerce-api#readme",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "loglevel": "^1.8.1",
+        "loglevel-plugin-prefix": "^0.8.4",
+        "moment": "^2.29.4",
+        "morgan": "^1.10.0",
+        "nodemailer": "^6.9.3",
+        "sequelize": "^6.31.1",
+        "sqlite3": "^5.1.6",
+        "swagger-ui-express": "^4.6.3"
+    }
+}

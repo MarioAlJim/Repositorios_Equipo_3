@@ -1,0 +1,141 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "EzCommerce services API",
+        "version": "0.0.1",
+        "title": "EzCommerce"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/test": {
+            "get": {
+                "summary": "Test endpoint",
+                "operationId": "test",
+                "responses": {
+                    "200": {
+                        "description": "It works!"
+                    }
+                }
+            }
+        },
+        "/api/user": {
+            "post": {
+                "summary": "Create a new user",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "User object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User created"
+                    }
+                }
+            }
+        },
+        "/api/user/login": {
+            "post": {
+                "summary": "Login user",
+                "operationId": "userLogin",
+                "requestBody": {
+                    "description": "User object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Credentials"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User logged in"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "John",
+                        "minLength": 1,
+                        "maxLength": 50
+                    },
+                    "paternalSurname": {
+                        "type": "string",
+                        "example": "Doe",
+                        "minLength": 1,
+                        "maxLength": 50
+                    },
+                    "maternalSurname": {
+                        "type": "string",
+                        "example": "Doe Jr",
+                        "minLength": 1,
+                        "maxLength": 50
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "example": "13-12-1990"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "1234567890",
+                        "minLength": 7,
+                        "maxLength": 15
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "aaa@test.io",
+                        "minLength": 5,
+                        "maxLength": 50
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "test",
+                        "minLength": 4,
+                        "maxLength": 20
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "Test1.",
+                        "minLength": 6,
+                        "maxLength": 50
+                    }
+                }
+            },
+            "Credentials": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "example": "test",
+                        "minLength": 4,
+                        "maxLength": 20
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "Test1.",
+                        "minLength": 6,
+                        "maxLength": 50
+                    }
+                }
+            }
+        }
+    }
+}

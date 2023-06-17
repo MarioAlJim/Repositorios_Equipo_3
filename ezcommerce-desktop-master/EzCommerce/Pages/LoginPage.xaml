@@ -1,0 +1,131 @@
+﻿<Page x:Class="EzCommerce.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EzCommerce"
+      mc:Ignorable="d" 
+      Height="720" Width="1280"
+      Title="LoginPage">
+    <Page.Resources>
+        <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Century Gothic" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                            </Border>
+                            <Border BorderBrush="White"
+                            BorderThickness="0,0,0,2"
+                            Margin="0,0,0,2"
+                            VerticalAlignment="Bottom"
+                            Opacity="0.5" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CustomPassworddBoxStyle" TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                            </Border>
+                            <Border BorderBrush="White"
+                            BorderThickness="0,0,0,2"
+                            Margin="0,0,0,2"
+                            VerticalAlignment="Bottom"
+                            Opacity="0.5" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ElegantButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#007ACC" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#005B91" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#003653" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="Black">
+        <Image HorizontalAlignment="Left" Height="969" VerticalAlignment="Top" Width="1338" Source="{Binding Source={x:Static local:AppResources.background}}" OpacityMask="#46000000"/>
+        <Image HorizontalAlignment="Left" Height="348" Margin="132,105,0,0" VerticalAlignment="Top" Width="531" Source="{Binding Source={x:Static local:AppResources.logo}}"/>
+
+        <Border Margin="761,63,119,557" Width="400" Height="100" >
+            <TextBlock Text="Inicio de Sesión" Foreground="White" FontSize="40" VerticalAlignment="Bottom" FontFamily="Century Gothic"/>
+        </Border>
+
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="761,207,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" TextBlock.FontFamily="Century Gothic"/>
+        <Label Name="usernameRequiredText" Content="Required" HorizontalAlignment="Left" Margin="1060,207,0,0" VerticalAlignment="Top" Foreground="Red" Height="48" Width="101" FontSize="20" TextBlock.FontFamily="Century Gothic"/>
+        <TextBox Style="{StaticResource CustomTextBoxStyle}" Name="usernameTextBox" HorizontalAlignment="Left" Margin="761,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="54" FontSize="24" TextAlignment="Left" VerticalContentAlignment="Center" Opacity="0.85" KeyDown="TextInput_KeyDown" Foreground="White"/>
+        
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="761,332,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" TextBlock.FontFamily="Century Gothic"/>
+        <Label Name="passwordRequiredText" Content="Required" HorizontalAlignment="Left" Margin="1060,332,0,0" VerticalAlignment="Top" Foreground="Red" Height="40" Width="101" FontSize="20" TextBlock.FontFamily="Century Gothic" />
+        <PasswordBox Style="{StaticResource CustomPassworddBoxStyle }" Name="passwordPasswordBox" HorizontalAlignment="Left" Margin="761,378,0,0" VerticalAlignment="Top" Width="400" Height="54" RenderTransformOrigin="0.5,0.5" FontSize="18" VerticalContentAlignment="Center" Opacity="0.85" KeyDown="TextInput_KeyDown" Foreground="White"/>
+        
+        <Label Name="resultText" Content="placeholder" HorizontalContentAlignment="Left" Margin="761,442,302,242" VerticalContentAlignment="Center" Foreground="Red" FontSize="20" TextBlock.FontFamily="Century Gothic"/>
+        <Button Style="{StaticResource ElegantButtonStyle}" Name="LoginButton" Content="Iniciar sesión" HorizontalAlignment="Right" Margin="0,0,329,162" VerticalAlignment="Bottom" Background="#FF126501" FontSize="22" Click="LoginButton_Click" Height="56" Width="190" TextBlock.FontFamily="Century Gothic"/>
+        <local:OutlinedTextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="72" FontWeight="Black" FontStyle="Italic" StrokeThickness="3" Stroke="Black" Margin="146,460,0,0" Height="104" Width="460">
+            <local:OutlinedTextBlock.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="-36.87" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFFF3300"/>
+                    <GradientStop Color="#FFFFCD00" Offset="1"/>
+                </LinearGradientBrush>
+            </local:OutlinedTextBlock.Fill>
+            EzCommerce
+        </local:OutlinedTextBlock>
+    </Grid>
+</Page>

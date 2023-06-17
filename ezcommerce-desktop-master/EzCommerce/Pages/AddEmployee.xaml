@@ -1,0 +1,142 @@
+﻿<Page x:Class="EzCommerce.AddEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EzCommerce"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="AddEmployee" Height="720" Width="1088">
+    <Page.Resources>
+        <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                            </Border>
+                            <Border BorderBrush="White"
+                            BorderThickness="0,0,0,2"
+                            Margin="0,0,0,2"
+                            VerticalAlignment="Bottom"
+                            Opacity="0.5" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CustomPassworddBoxStyle" TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                            </Border>
+                            <Border BorderBrush="White"
+                            BorderThickness="0,0,0,2"
+                            Margin="0,0,0,2"
+                            VerticalAlignment="Bottom"
+                            Opacity="0.5" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CustomDatePicker" TargetType="DatePicker">
+            <Setter Property="FontSize" Value="27" />
+        </Style>
+        <Style x:Key="ElegantButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#007ACC" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#005B91" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#003653" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="Black"  Margin="0,0,0,-6">
+        <Image HorizontalAlignment="Left" Height="969" VerticalAlignment="Top" Width="1338" Source="{Binding Source={x:Static local:AppResources.background}}" OpacityMask="#46000000" Opacity="2.5"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="78,74,0,0" VerticalAlignment="Top" Height="58" Width="184" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Apellido paterno" HorizontalAlignment="Left" Margin="78,193,0,0" VerticalAlignment="Top" Height="58" Width="220" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="78,295,0,0" VerticalAlignment="Top" Height="59" Width="85" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Día de nacimiento" HorizontalAlignment="Left" Margin="78,418,0,0" VerticalAlignment="Top" Height="56" Width="197" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="671,293,0,0" VerticalAlignment="Top" Height="58" Width="102" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Apellido materno" HorizontalAlignment="Left" Margin="671,74,0,0" VerticalAlignment="Top" Height="58" Width="189" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <Label Content="Email" HorizontalAlignment="Left" Margin="671,193,0,0" VerticalAlignment="Top" Height="58" Width="112" RenderTransformOrigin="0.469,1.147" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <TextBox x:Name="nameTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="78,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White" />
+        <TextBox x:Name="paternalTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="78,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White"/>
+        <TextBox x:Name="phoneTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="671,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White"/>
+        <TextBox x:Name="maternalTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="671,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="312" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White"/>
+        <TextBox x:Name="emailTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="671,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="312" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White"/>
+        <DatePicker Name="birthdatePicker" SelectedDate="{x:Static sys:DateTime.Now}" Style="{StaticResource CustomDatePicker}" HorizontalAlignment="Left" Margin="78,446,0,0" VerticalAlignment="Top" Width="311" Height="53" Foreground="Black">
+            <DatePicker.BorderBrush>
+                <ImageBrush/>
+            </DatePicker.BorderBrush>
+        </DatePicker>
+        <Button x:Name="backBttn" Style="{StaticResource ElegantButtonStyle}" Background="DarkGray" Content="Regresar" HorizontalAlignment="Left" Margin="594,646,0,0" VerticalAlignment="Top" Width="204" Foreground="White" Height="48" FontFamily="Century Gothic" FontSize="16" Click="backBttn_Click"/>
+        <Button x:Name="registerBttn" Style="{StaticResource ElegantButtonStyle}" Background="OliveDrab" Content="Guardar" HorizontalAlignment="Left" Margin="842,646,0,0" VerticalAlignment="Top" Width="204" Foreground="White" Height="48" FontFamily="Century Gothic" FontSize="16" Click="registerBttn_Click"/>
+        <TextBox x:Name="usernameTxtBx" Style="{StaticResource CustomTextBoxStyle}" HorizontalAlignment="Left" Height="58" Margin="78,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" FontSize="22" VerticalContentAlignment="Center" FontFamily="Century Gothic" Foreground="White"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="669,417,0,0" VerticalAlignment="Top" Height="58" Width="158" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <PasswordBox x:Name="passwordBox" Style="{StaticResource CustomPassworddBoxStyle}" HorizontalAlignment="Left" Margin="671,456,0,0" VerticalAlignment="Top" Width="313" Height="58" Foreground="White" FontSize="22" VerticalContentAlignment="Center">
+            <PasswordBox.BorderBrush>
+                <ImageBrush/>
+            </PasswordBox.BorderBrush>
+            <PasswordBox.Background>
+                <ImageBrush/>
+            </PasswordBox.Background>
+        </PasswordBox>
+        <Label Content="Rol" HorizontalAlignment="Left" Margin="78,530,0,0" VerticalAlignment="Top" Height="56" Width="197" FontFamily="Century Gothic" FontSize="20" Foreground="White" />
+        <ComboBox Name="RoleComboBox" FontSize="22" HorizontalAlignment="Left" Margin="78,564,0,0" VerticalAlignment="Top" Width="311" Height="48" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-2.322"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.709"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+    </Grid>
+
+</Page>
